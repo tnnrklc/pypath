@@ -1,0 +1,440 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Webservice &#8212; pypath 0.14.30 documentation</title>
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/insipid.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/pypathdocs.css" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script defer src="_static/insipid.js"></script>
+    <script defer src="_static/insipid-sidebar.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Release history" href="releasehistory.html" />
+    <link rel="prev" title="pypath: A Python module for molecular signaling prior knowledge processing" href="index.html" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+  </head><body>
+    <script type="text/javascript">
+        document.body.classList.add('js');
+    </script>
+    <input type="checkbox" id="sidebar-checkbox" style="display: none;">
+    <label id="overlay" for="sidebar-checkbox"></label>
+    <div class="sidebar-resize-handle"></div>
+    <script type="text/javascript">
+        try {
+            let sidebar = localStorage.getItem('sphinx-sidebar');
+            const sidebar_width = localStorage.getItem('sphinx-sidebar-width');
+            if (sidebar_width) {
+                document.documentElement.style.setProperty('--sidebar-width', sidebar_width);
+            }
+            // show sidebar on wide screen
+            if (!sidebar && window.matchMedia('(min-width: 100rem)').matches) {
+                sidebar = 'visible';
+                // NB: We don't store the value in localStorage!
+            }
+            if (sidebar === 'visible') {
+                document.getElementById('sidebar-checkbox').checked = true;
+            }
+        } catch(e) {
+            console.info(e);
+        }
+    </script>
+    <header id="topbar-placeholder">
+      <div id="topbar">
+        <div id="titlebar">
+          <div class="buttons">
+            <label for="sidebar-checkbox" id="sidebar-button" role="button" tabindex="0" aria-controls="sphinxsidebar" accesskey="M">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg>
+            </label>
+          </div>
+          <div class="title">
+            <a class="parent" href="index.html" accesskey="U">pypath 0.14.30 documentation</a>
+            <a class="top" href="#">Webservice</a>
+          </div>
+          <div class="buttons">
+            <button id="fullscreen-button" type="button" aria-hidden="true">
+              <span class="enable">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M212.686 315.314L120 408l32.922 31.029c15.12 15.12 4.412 40.971-16.97 40.971h-112C10.697 480 0 469.255 0 456V344c0-21.382 25.803-32.09 40.922-16.971L72 360l92.686-92.686c6.248-6.248 16.379-6.248 22.627 0l25.373 25.373c6.249 6.248 6.249 16.378 0 22.627zm22.628-118.628L328 104l-32.922-31.029C279.958 57.851 290.666 32 312.048 32h112C437.303 32 448 42.745 448 56v112c0 21.382-25.803 32.09-40.922 16.971L376 152l-92.686 92.686c-6.248 6.248-16.379 6.248-22.627 0l-25.373-25.373c-6.249-6.248-6.249-16.378 0-22.627z"/></svg>
+              </span>
+              <span class="disable">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M4.686 427.314L104 328l-32.922-31.029C55.958 281.851 66.666 256 88.048 256h112C213.303 256 224 266.745 224 280v112c0 21.382-25.803 32.09-40.922 16.971L152 376l-99.314 99.314c-6.248 6.248-16.379 6.248-22.627 0L4.686 449.941c-6.248-6.248-6.248-16.379 0-22.627zM443.314 84.686L344 184l32.922 31.029c15.12 15.12 4.412 40.971-16.97 40.971h-112C234.697 256 224 245.255 224 232V120c0-21.382 25.803-32.09 40.922-16.971L296 136l99.314-99.314c6.248-6.248 16.379-6.248 22.627 0l25.373 25.373c6.248 6.248 6.248 16.379 0 22.627z"/></svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <nav>
+      <a href="index.html" class="nav-icon previous" title="previous:&#13;pypath: A Python module for molecular signaling prior knowledge processing" aria-label="Previous topic" accesskey="P" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"/></svg>
+      </a>
+      <a href="releasehistory.html" class="nav-icon next" title="next:&#13;Release history" aria-label="Next topic" accesskey="N" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg>
+      </a>
+    </nav>
+
+    <nav class="relbar">
+      <a class="previous" href="index.html" aria-label="Previous topic" >
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"/></svg>
+        </div>
+        <div class="title">
+          <span class="text">
+            <span class="direction">previous</span>
+            <em>pypath:</em> A Python module for molecular signaling prior knowledge processing
+          </span>
+        </div>
+      </a>
+      <a class="next" href="releasehistory.html" aria-label="Next topic" >
+        <div class="title">
+          <span class="text">
+            <span class="direction">next</span>
+            Release history
+          </span>
+        </div>
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"/></svg>
+        </div>
+      </a>
+    </nav>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+<section id="webservice">
+<h1>Webservice<a class="headerlink" href="#webservice" title="Permalink to this heading">§</a></h1>
+<p>The webservice implements a very simple REST style API, you can make requests
+by the HTTP protocol (browser, wget, curl or whatever). After defining the
+query type and optionally a set of molecular entities (proteins) you can
+add further GET parameters encoded in the URL.</p>
+<section id="query-types">
+<h2>Query types<a class="headerlink" href="#query-types" title="Permalink to this heading">§</a></h2>
+<p>The webservice currently recognizes 7 types of queries: <code class="docutils literal notranslate"><span class="pre">interactions</span></code>,
+<code class="docutils literal notranslate"><span class="pre">enz_sub</span></code>, <code class="docutils literal notranslate"><span class="pre">annotations</span></code>, <code class="docutils literal notranslate"><span class="pre">complexes</span></code>, <code class="docutils literal notranslate"><span class="pre">intercell</span></code>, <code class="docutils literal notranslate"><span class="pre">queries</span></code> and
+<code class="docutils literal notranslate"><span class="pre">info</span></code>.
+The query types <code class="docutils literal notranslate"><span class="pre">resources</span></code>, <code class="docutils literal notranslate"><span class="pre">network</span></code> and <code class="docutils literal notranslate"><span class="pre">about</span></code> have not been
+implemented yet in the new webservice.</p>
+</section>
+<section id="interaction-datasets">
+<h2>Interaction datasets<a class="headerlink" href="#interaction-datasets" title="Permalink to this heading">§</a></h2>
+<p>The instance of the <code class="docutils literal notranslate"><span class="pre">pypath</span></code> webserver running at the domain
+<a class="reference external" href="https://omnipathdb.org/">https://omnipathdb.org/</a>, serves not only the OmniPath data but also other
+datasets. Each of them has a short name what you can use in the queries
+(e.g. <code class="docutils literal notranslate"><span class="pre">&amp;datasets=omnipath,pathwayextra</span></code>).</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">omnipath</span></code>: the OmniPath data as defined in the paper, an arbitrary
+optimum between coverage and quality</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pathwayextra</span></code>: activity flow interactions without literature reference</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kinaseextra</span></code>: enzyme-substrate interactions without literature reference</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ligrecextra</span></code>: ligand-receptor interactions without literature reference</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dorothea</span></code>: transcription factor (TF)-target interactions from DoRothEA</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tf_target</span></code>: transcription factor (TF)-target interactions from other
+sources</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mirnatarget</span></code>: miRNA-mRNA and TF-miRNA interactions</p></li>
+</ul>
+<p>TF-target interactions from DoRothEA, a large collection additional
+enzyme-substrate interactions, and literature curated miRNA-mRNA interacions
+combined from 4 databases.</p>
+</section>
+<section id="mouse-and-rat">
+<h2>Mouse and rat<a class="headerlink" href="#mouse-and-rat" title="Permalink to this heading">§</a></h2>
+<p>Except the miRNA interactions all interactions are available for human, mouse
+and rat. The rodent data has been translated from human using the NCBI
+Homologene database. Many human proteins do not have known homolog in rodents
+hence rodent datasets are smaller than their human counterparts. Note, if you
+work with mouse omics data you might do better to translate your dataset to
+human (for example using the <code class="docutils literal notranslate"><span class="pre">pypath.homology</span></code> module) and use human
+interaction data.</p>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">§</a></h2>
+<p>A request without any parameter provides the main webpage:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://omnipathdb.org">https://omnipathdb.org</a></p>
+</div></blockquote>
+<p>The <code class="docutils literal notranslate"><span class="pre">info</span></code> returns a HTML page with comprehensive information about the
+resources. The list here should be and will be updated as currently OmniPath
+includes much more databases:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://omnipathdb.org/info">https://omnipathdb.org/info</a></p>
+</div></blockquote>
+<section id="molecular-interaction-network">
+<h3>Molecular interaction network<a class="headerlink" href="#molecular-interaction-network" title="Permalink to this heading">§</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">interactions</span></code> query accepts some parameters and returns interactions in
+tabular format. This example returns all interactions of EGFR (P00533), with
+sources and references listed.</p>
+<blockquote>
+<div><p><a class="reference external" href="https://omnipathdb.org/interactions/?partners=P00533&amp;fields=sources,references">https://omnipathdb.org/interactions/?partners=P00533&amp;fields=sources,references</a></p>
+</div></blockquote>
+<p>By default only the OmniPath dataset used, to include any other dataset you
+have to set additional parameters. For example to query the transcriptional regulators of EGFR:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://omnipathdb.org/interactions/?targets=EGFR&amp;types=transcriptional">https://omnipathdb.org/interactions/?targets=EGFR&amp;types=transcriptional</a></p>
+</div></blockquote>
+<p>The DoRothEA database assigns confidence levels to the interactions. You
+might want to select only the highest confidence, <em>A</em> category:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://omnipathdb.org/interactions/?targets=EGFR&amp;types=transcriptional&amp;dorothea_levels=A">https://omnipathdb.org/interactions/?targets=EGFR&amp;types=transcriptional&amp;dorothea_levels=A</a></p>
+</div></blockquote>
+<p>Show the transcriptional targets of Smad2 homology translated to rat including
+the confidence levels from TF Regulons:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://omnipathdb.org/interactions/?genesymbols=1&amp;fields=type,ncbi_tax_id,dorothea_level&amp;organisms=10116&amp;sources=Smad2&amp;types=transcriptional">https://omnipathdb.org/interactions/?genesymbols=1&amp;fields=type,ncbi_tax_id,dorothea_level&amp;organisms=10116&amp;sources=Smad2&amp;types=transcriptional</a></p>
+</div></blockquote>
+<p>Query interactions from PhosphoNetworks which is part of the <em>kinaseextra</em>
+dataset:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://omnipathdb.org/interactions/?genesymbols=1&amp;fields=sources&amp;databases=PhosphoNetworks&amp;datasets=kinaseextra">https://omnipathdb.org/interactions/?genesymbols=1&amp;fields=sources&amp;databases=PhosphoNetworks&amp;datasets=kinaseextra</a></p>
+</div></blockquote>
+<p>Get the interactions from Signor, SPIKE and SignaLink3:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://omnipathdb.org/interactions/?genesymbols=1&amp;fields=sources,references&amp;databases=Signor,SPIKE,SignaLink3">https://omnipathdb.org/interactions/?genesymbols=1&amp;fields=sources,references&amp;databases=Signor,SPIKE,SignaLink3</a></p>
+</div></blockquote>
+<p>All interactions of MAP1LC3B:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://omnipathdb.org/interactions/?genesymbols=1&amp;partners=MAP1LC3B">https://omnipathdb.org/interactions/?genesymbols=1&amp;partners=MAP1LC3B</a></p>
+</div></blockquote>
+<p>By default <code class="docutils literal notranslate"><span class="pre">partners</span></code> queries the interaction where either the source or the
+arget is among the partners. If you set the <code class="docutils literal notranslate"><span class="pre">source_target</span></code> parameter to
+<code class="docutils literal notranslate"><span class="pre">AND</span></code> both the source and the target must be in the queried set:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://omnipathdb.org/interactions/?genesymbols=1&amp;fields=sources,references&amp;sources=ATG3,ATG7,ATG4B,SQSTM1&amp;targets=MAP1LC3B,MAP1LC3A,MAP1LC3C,Q9H0R8,GABARAP,GABARAPL2&amp;source_target=AND">https://omnipathdb.org/interactions/?genesymbols=1&amp;fields=sources,references&amp;sources=ATG3,ATG7,ATG4B,SQSTM1&amp;targets=MAP1LC3B,MAP1LC3A,MAP1LC3C,Q9H0R8,GABARAP,GABARAPL2&amp;source_target=AND</a></p>
+</div></blockquote>
+<p>As you see above you can use UniProt IDs and Gene Symbols in the queries and
+also mix them. Get the miRNA regulating NOTCH1:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://omnipathdb.org/interactions/?genesymbols=1&amp;fields=sources,references&amp;datasets=mirnatarget&amp;targets=NOTCH1">https://omnipathdb.org/interactions/?genesymbols=1&amp;fields=sources,references&amp;datasets=mirnatarget&amp;targets=NOTCH1</a></p>
+</div></blockquote>
+<p>Note: with the exception of mandatory fields and genesymbols, the columns
+appear exactly in the order you provided in your query.</p>
+</section>
+<section id="enzyme-substrate-interactions">
+<h3>Enzyme-substrate interactions<a class="headerlink" href="#enzyme-substrate-interactions" title="Permalink to this heading">§</a></h3>
+<p>Another query type available is <code class="docutils literal notranslate"><span class="pre">ptms</span></code> which provides enzyme-substrate
+interactions. It is very similar to the <code class="docutils literal notranslate"><span class="pre">interactions</span></code>:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://omnipathdb.org/enz_sub?genesymbols=1&amp;fields=sources,references,isoforms&amp;enzymes=FYN">https://omnipathdb.org/enz_sub?genesymbols=1&amp;fields=sources,references,isoforms&amp;enzymes=FYN</a></p>
+</div></blockquote>
+<p>Is there any ubiquitination reaction?</p>
+<blockquote>
+<div><p><a class="reference external" href="https://omnipathdb.org/ens_sub?genesymbols=1&amp;fields=sources,references&amp;types=ubiquitination">https://omnipathdb.org/ens_sub?genesymbols=1&amp;fields=sources,references&amp;types=ubiquitination</a></p>
+</div></blockquote>
+<p>And acetylation in mouse?</p>
+<blockquote>
+<div><p><a class="reference external" href="https://omnipathdb.org/ptms?genesymbols=1&amp;fields=sources,references&amp;types=acetylation&amp;organisms=10090">https://omnipathdb.org/ptms?genesymbols=1&amp;fields=sources,references&amp;types=acetylation&amp;organisms=10090</a></p>
+</div></blockquote>
+<p>Rat interactions, both directly from rat and homology translated from human,
+from the PhosphoSite database:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://omnipathdb.org/enz_sub?genesymbols=1&amp;fields=sources,references&amp;organisms=10116&amp;databases=PhosphoSite,PhosphoSite_noref">https://omnipathdb.org/enz_sub?genesymbols=1&amp;fields=sources,references&amp;organisms=10116&amp;databases=PhosphoSite,PhosphoSite_noref</a></p>
+</div></blockquote>
+</section>
+<section id="molecular-complexes">
+<h3>Molecular complexes<a class="headerlink" href="#molecular-complexes" title="Permalink to this heading">§</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">complexes</span></code> query provides a comprehensive database of more than 22,000
+protein complexes. For example, to query all complexes from CORUM and PDB
+containing MTOR (P42345):</p>
+<blockquote>
+<div><p><a class="reference external" href="https://omnipathdb.org/complexes?proteins=P42345&amp;databases=CORUM,PDB">https://omnipathdb.org/complexes?proteins=P42345&amp;databases=CORUM,PDB</a></p>
+</div></blockquote>
+</section>
+<section id="annotations">
+<h3>Annotations<a class="headerlink" href="#annotations" title="Permalink to this heading">§</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">annotations</span></code> query provides a large variety of data about proteins,
+complexes and in the future other kinds of molecules. For example an
+annotation can tell if a protein is a kinase, or if it is expressed in the
+hearth muscle. These data come from dozens of databases and each kind of
+annotation record contains different fields. Because of this here we have
+a <code class="docutils literal notranslate"><span class="pre">record_id</span></code> field which is unique within the records of each database.
+Each row contains one key value pair and you need to use the <code class="docutils literal notranslate"><span class="pre">record_id</span></code>
+to connect the related key-value pairs. You can easily do this with <code class="docutils literal notranslate"><span class="pre">tidyr</span></code>
+and <code class="docutils literal notranslate"><span class="pre">dplyr</span></code> in R or <code class="docutils literal notranslate"><span class="pre">pandas</span></code> in Python. An example to query the pathway
+annotations from SignaLink:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://omnipathdb.org/annotations?databases=SignaLink_pathway">https://omnipathdb.org/annotations?databases=SignaLink_pathway</a></p>
+</div></blockquote>
+<p>Or the tissue expression of BMP7 from Human Protein Atlas:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://omnipathdb.org/annotations?databases=HPA_tissue&amp;proteins=BMP7">https://omnipathdb.org/annotations?databases=HPA_tissue&amp;proteins=BMP7</a></p>
+</div></blockquote>
+</section>
+<section id="roles-in-inter-cellular-communication">
+<h3>Roles in inter-cellular communication<a class="headerlink" href="#roles-in-inter-cellular-communication" title="Permalink to this heading">§</a></h3>
+<p>Another query type is the <code class="docutils literal notranslate"><span class="pre">intercell</span></code>, providing information about the
+roles in inter-cellular signaling. E.g. if a protein is a ligand, a receptor,
+an extracellular matrix (ECM) component, etc. The proteins and protein
+complexes are classified into categories. The categories are defined by a
+number of attributes:</p>
+<ul class="simple">
+<li><p><cite>aspect</cite>: funtional (e.g. ion channel) or locational (e.g. plasma
+membrane transmembrane).</p></li>
+<li><p><cite>scope</cite>: generic (e.g. ligand) or specific (e.g. interleukin)</p></li>
+<li><p><cite>source</cite>: resource specific (from one resource) or composite (combined
+from more resources)</p></li>
+<li><p><cite>causality</cite>: transmitter (delivering signal from the expressing cell)
+or receiver (receiving signal into the expressing cell) or both</p></li>
+<li><p><cite>topology</cite>: major localization categories derived from the locational
+categories: plasma membrane transmembrane or peripheral or secreted</p></li>
+</ul>
+<p>The <cite>intercell</cite> database defines 25 functional and 10 locational generic,
+composite categories. The number of specific categories is above 1,000.</p>
+<p>You can use all these attributes in your queries, see the exact keys and
+values at <a class="reference external" href="https://omnipathdb.org/queries/intercell">https://omnipathdb.org/queries/intercell</a></p>
+<p>Some example queries:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://omnipathdb.org/intercell?proteins=EGFR,ULK1,ATG4A,BMP8B">https://omnipathdb.org/intercell?proteins=EGFR,ULK1,ATG4A,BMP8B</a></p>
+</div></blockquote>
+<p>All the resource specific functional classes for one protein:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://omnipathdb.org/intercell?source=resource_specific&amp;aspect=functional&amp;proteins=P00533">https://omnipathdb.org/intercell?source=resource_specific&amp;aspect=functional&amp;proteins=P00533</a></p>
+</div></blockquote>
+<p>A list of all ECM proteins:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://omnipathdb.org/intercell?categories=ecm">https://omnipathdb.org/intercell?categories=ecm</a></p>
+</div></blockquote>
+</section>
+<section id="exploring-possible-parameters">
+<h3>Exploring possible parameters<a class="headerlink" href="#exploring-possible-parameters" title="Permalink to this heading">§</a></h3>
+<p>Sometimes the names and values of the query parameters are not intuitive,
+even though in many cases the server accepts multiple alternatives. To see
+the possible parameters with all possible values you can use the <code class="docutils literal notranslate"><span class="pre">queries</span></code>
+query type. The server checks the parameter names and values exactly against
+these rules and if any of them don’t match you will get an error message
+instead of reply. To see the parameters for the <code class="docutils literal notranslate"><span class="pre">interactions</span></code> query:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://omnipathdb.org/queries/interactions">https://omnipathdb.org/queries/interactions</a></p>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+
+          <div class="sidebar-resize-handle"></div>
+
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html"><em>pypath:</em> A Python module for molecular signaling prior knowledge processing</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#omnipath">OmniPath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#do-you-need-pypath">Do you need pypath?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#docs">Docs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#get-help">Get help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#faq">FAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#contact">Contact</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#impressum">Impressum</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#history-and-releases">History and releases</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Webservice</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#query-types">Query types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#interaction-datasets">Interaction datasets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mouse-and-rat">Mouse and rat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#molecular-interaction-network">Molecular interaction network</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#enzyme-substrate-interactions">Enzyme-substrate interactions</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#molecular-complexes">Molecular complexes</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#annotations">Annotations</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#roles-in-inter-cellular-communication">Roles in inter-cellular communication</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#exploring-possible-parameters">Exploring possible parameters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="releasehistory.html">Release history</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Webservice</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#query-types">Query types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interaction-datasets">Interaction datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mouse-and-rat">Mouse and rat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#molecular-interaction-network">Molecular interaction network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enzyme-substrate-interactions">Enzyme-substrate interactions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#molecular-complexes">Molecular complexes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#annotations">Annotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#roles-in-inter-cellular-communication">Roles in inter-cellular communication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exploring-possible-parameters">Exploring possible parameters</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="releasehistory.html">Release history</a></li>
+</ul>
+
+  </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+<div id="ethical-ad-placement"></div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+
+    <nav class="relbar">
+      <a class="previous" href="index.html" aria-label="Previous topic" >
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"/></svg>
+        </div>
+        <div class="title">
+          <span class="text">
+            <span class="direction">previous</span>
+            <em>pypath:</em> A Python module for molecular signaling prior knowledge processing
+          </span>
+        </div>
+      </a>
+      <a class="next" href="releasehistory.html" aria-label="Next topic" >
+        <div class="title">
+          <span class="text">
+            <span class="direction">next</span>
+            Release history
+          </span>
+        </div>
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"/></svg>
+        </div>
+      </a>
+    </nav>
+
+    <footer role="contentinfo">
+      &#169; Copyright 2022, Denes Turei &lt;turei.denes@gmail.com&gt;, Nicolàs Palacio, Sebastian Lobentanzer, Olga Ivanova, Erva Ulusoy, Ahmet Rifaioglu, Charles Tapley Hoyt.
+      Created using <a class="reference external" href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+      <a class="reference external" href="https://insipid-sphinx-theme.readthedocs.io/">Insipid Theme</a>.
+<a class="reference internal" href="_sources/webservice.rst.txt" rel="nofollow">Show Source</a>.
+    </footer>
+  </body>
+</html>
